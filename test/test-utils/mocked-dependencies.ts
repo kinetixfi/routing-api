@@ -1,5 +1,5 @@
-import { V3PoolProvider } from '@uniswap/smart-order-router'
-import { Pool } from '@uniswap/v3-sdk'
+import { V3PoolProvider } from '@kinetix/smart-order-router'
+import { Pool } from '@kinetix/v3-sdk'
 import {
   buildMockV3PoolAccessor,
   DAI_USDT_LOW,

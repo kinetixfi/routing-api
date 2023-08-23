@@ -1,6 +1,6 @@
 import { SignerWithAddress } from '@nomiclabs/hardhat-ethers/signers'
-import { AllowanceTransfer, PermitSingle } from '@uniswap/permit2-sdk'
-import { ChainId, Currency, CurrencyAmount, Ether, Fraction, Token, WETH9 } from '@uniswap/sdk-core'
+import { AllowanceTransfer, PermitSingle } from '@kinetix/permit2-sdk'
+import { ChainId, Currency, CurrencyAmount, Ether, Fraction, Token, WETH9 } from '@kinetix/sdk-core'
 import {
   CEUR_CELO,
   CEUR_CELO_ALFAJORES,
@@ -14,12 +14,12 @@ import {
   USDC_MAINNET,
   USDT_MAINNET,
   WBTC_MAINNET,
-} from '@uniswap/smart-order-router'
+} from '@kinetix/smart-order-router'
 import {
   PERMIT2_ADDRESS,
   UNIVERSAL_ROUTER_ADDRESS as UNIVERSAL_ROUTER_ADDRESS_BY_CHAIN,
-} from '@uniswap/universal-router-sdk'
-import { MethodParameters } from '@uniswap/smart-order-router'
+} from '@kinetix/universal-router-sdk'
+import { MethodParameters } from '@kinetix/smart-order-router'
 import { fail } from 'assert'
 import axiosStatic, { AxiosResponse } from 'axios'
 import axiosRetry from 'axios-retry'
@@ -1904,6 +1904,7 @@ describe('quote', function () {
     [ChainId.AVALANCHE]: () => USDC_ON(ChainId.AVALANCHE),
     [ChainId.BASE_GOERLI]: () => USDC_ON(ChainId.BASE_GOERLI),
     [ChainId.BASE]: () => USDC_ON(ChainId.BASE),
+    [ChainId.KAVA]: () => USDC_ON(ChainId.KAVA),
   }
 
   const TEST_ERC20_2: { [chainId in ChainId]: () => Token | null } = {
@@ -1924,6 +1925,7 @@ describe('quote', function () {
     [ChainId.AVALANCHE]: () => DAI_ON(ChainId.AVALANCHE),
     [ChainId.BASE_GOERLI]: () => WNATIVE_ON(ChainId.BASE_GOERLI),
     [ChainId.BASE]: () => WNATIVE_ON(ChainId.BASE),
+    [ChainId.KAVA]: () => null,
   }
 
   // TODO: Find valid pools/tokens on optimistic kovan and polygon mumbai. We skip those tests for now.

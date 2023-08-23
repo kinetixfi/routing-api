@@ -1,8 +1,8 @@
-# Uniswap Routing API
+# Kinetix Routing API
 
-This repository contains routing API for the Uniswap V3 protocol.
+This repository contains routing API for the Kinetix V3 protocol.
 
-It deploys an API to AWS that uses @uniswap/smart-order-router to search for the most efficient way to swap token A for token B.
+It deploys an API to AWS that uses @kinetix/smart-order-router to search for the most efficient way to swap token A for token B.
 
 ## Development
 
@@ -30,6 +30,7 @@ The best way to develop and test the API is to deploy your own instance to AWS.
    # POLYGON = 137
    # POLYGON_MUMBAI = 80001
    # BNB = 56
+   # KAVA = 2222
    TENDERLY_USER = '' # For enabling Tenderly simulations
    TENDERLY_PROJECT = '' # For enabling Tenderly simulations
    TENDERLY_ACCESS_KEY = '' # For enabling Tenderly simulations

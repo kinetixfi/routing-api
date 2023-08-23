@@ -1,6 +1,6 @@
-import { Protocol } from '@uniswap/router-sdk'
-import { V2SubgraphProvider, V3SubgraphProvider } from '@uniswap/smart-order-router'
-import { ChainId } from '@uniswap/sdk-core'
+import { Protocol } from '@kinetix/router-sdk'
+import { V2SubgraphProvider, V3SubgraphProvider } from '@kinetix/smart-order-router'
+import { ChainId } from '@kinetix/sdk-core'
 
 export const chainProtocols = [
   // V3.

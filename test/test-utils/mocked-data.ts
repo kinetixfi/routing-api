@@ -1,12 +1,12 @@
-import { encodeSqrtRatioX96, Pool } from '@uniswap/v3-sdk'
+import { encodeSqrtRatioX96, Pool } from '@kinetix/v3-sdk'
 import { FeeAmount } from '../utils/ticks'
 import {
   DAI_MAINNET as DAI,
   USDC_MAINNET as USDC,
   USDT_MAINNET as USDT,
   WRAPPED_NATIVE_CURRENCY,
-} from '@uniswap/smart-order-router/build/main/index'
-import { V3PoolAccessor } from '@uniswap/smart-order-router/build/main/providers/v3/pool-provider'
+} from '@kinetix/smart-order-router/build/main/index'
+import { V3PoolAccessor } from '@kinetix/smart-order-router/build/main/providers/v3/pool-provider'
 import _ from 'lodash'
 
 export const USDC_DAI_LOW = new Pool(USDC, DAI, FeeAmount.LOW, encodeSqrtRatioX96(1, 1), 10, 0)

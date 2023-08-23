@@ -1,4 +1,4 @@
-import { ChainId, Currency, Percent } from '@uniswap/sdk-core'
+import { ChainId, Currency, Percent } from '@kinetix/sdk-core'
 import {
   AlphaRouterConfig,
   ITokenListProvider,
@@ -7,7 +7,7 @@ import {
   NATIVE_NAMES_BY_ID,
   nativeOnChain,
   ProtocolPoolSelection,
-} from '@uniswap/smart-order-router'
+} from '@kinetix/smart-order-router'
 import Logger from 'bunyan'
 
 export const SECONDS_PER_BLOCK_BY_CHAIN_ID: { [chainId in ChainId]?: number } = {

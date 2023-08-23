@@ -1,13 +1,13 @@
-import { Protocol } from '@uniswap/router-sdk'
+import { Protocol } from '@kinetix/router-sdk'
 import {
   IV2SubgraphProvider,
   IV3SubgraphProvider,
   log,
   V2SubgraphPool,
   V3SubgraphPool,
-} from '@uniswap/smart-order-router'
+} from '@kinetix/smart-order-router'
 import { S3 } from 'aws-sdk'
-import { ChainId } from '@uniswap/sdk-core'
+import { ChainId } from '@kinetix/sdk-core'
 import NodeCache from 'node-cache'
 import { S3_POOL_CACHE_KEY } from '../../util/pool-cache-key'
 

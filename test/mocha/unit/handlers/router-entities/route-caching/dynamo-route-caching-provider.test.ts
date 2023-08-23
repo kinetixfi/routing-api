@@ -6,13 +6,13 @@ import {
   DynamoRouteCachingProvider,
   PairTradeTypeChainId,
 } from '../../../../../../lib/handlers/router-entities/route-caching'
-import { Protocol } from '@uniswap/router-sdk'
-import { ChainId, CurrencyAmount, TradeType } from '@uniswap/sdk-core'
+import { Protocol } from '@kinetix/router-sdk'
+import { ChainId, CurrencyAmount, TradeType } from '@kinetix/sdk-core'
 import JSBI from 'jsbi'
-import { FeeAmount, Pool } from '@uniswap/v3-sdk'
+import { FeeAmount, Pool } from '@kinetix/v3-sdk'
 import { CachedRoutesMarshaller } from '../../../../../../lib/handlers/router-entities/route-caching'
 import { WNATIVE_ON } from '../../../../../utils/tokens'
-import { CacheMode, CachedRoute, CachedRoutes, UNI_MAINNET, USDC_MAINNET, V3Route } from '@uniswap/smart-order-router'
+import { CacheMode, CachedRoute, CachedRoutes, UNI_MAINNET, USDC_MAINNET, V3Route } from '@kinetix/smart-order-router'
 import { SECONDS_PER_BLOCK_BY_CHAIN_ID } from '../../../../../../lib/handlers/shared'
 
 chai.use(chaiAsPromised)

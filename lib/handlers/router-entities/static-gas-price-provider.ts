@@ -1,4 +1,4 @@
-import { GasPrice, IGasPriceProvider } from '@uniswap/smart-order-router'
+import { GasPrice, IGasPriceProvider } from '@kinetix/smart-order-router'
 import { BigNumber } from 'ethers'
 
 export class StaticGasPriceProvider implements IGasPriceProvider {
