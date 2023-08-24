@@ -61,6 +61,7 @@ export const SUPPORTED_CHAINS: ChainId[] = [
   ChainId.BNB,
   ChainId.AVALANCHE,
   ChainId.BASE,
+  ChainId.KAVA,
 ]
 const DEFAULT_TOKEN_LIST = 'https://gateway.ipfs.io/ipns/tokens.uniswap.org'
 
