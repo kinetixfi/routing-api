@@ -14,6 +14,10 @@ import { STAGE } from '../lib/util/stage'
 import { RoutingAPIStack } from './stacks/routing-api-stack'
 dotenv.config()
 
+const REGION_KEY = 'eu-central-1'
+const ACCOUNT_KEY = '632279610150'
+const REGION_ACCOUNT_KEY = `${REGION_KEY}:${ACCOUNT_KEY}`
+
 export class RoutingAPIStage extends Stage {
   public readonly url: CfnOutput
 
@@ -76,7 +80,7 @@ export class RoutingAPIPipeline extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props)
 
-    const code = CodePipelineSource.gitHub('Uniswap/routing-api', 'main', {
+    const code = CodePipelineSource.gitHub('kinetixfi/routing-api', 'main', {
       authentication: SecretValue.secretsManager('github-token-2'),
     })
 
@@ -109,8 +113,7 @@ export class RoutingAPIPipeline extends Stack {
 
     const jsonRpcProvidersSecret = sm.Secret.fromSecretAttributes(this, 'RPCProviderUrls', {
       // The main secrets use our Infura RPC urls
-      secretCompleteArn:
-        'arn:aws:secretsmanager:us-east-2:644039819003:secret:routing-api-rpc-urls-json-primary-ixS8mw',
+      secretCompleteArn: `arn:aws:secretsmanager:${REGION_ACCOUNT_KEY}:secret:routing-api-rpc-urls-json-primary-ixS8mw`,
 
       /*
       The backup secrets mostly use our Alchemy RPC urls
@@ -124,30 +127,30 @@ export class RoutingAPIPipeline extends Stack {
     })
 
     const tenderlyCreds = sm.Secret.fromSecretAttributes(this, 'TenderlyCreds', {
-      secretCompleteArn: 'arn:aws:secretsmanager:us-east-2:644039819003:secret:tenderly-api-wQaI2R',
+      secretCompleteArn: `arn:aws:secretsmanager:${REGION_ACCOUNT_KEY}:secret:tenderly-api-wQaI2R`,
     })
 
     const ethGasStationInfoUrl = sm.Secret.fromSecretAttributes(this, 'ETHGasStationUrl', {
-      secretCompleteArn: 'arn:aws:secretsmanager:us-east-2:644039819003:secret:eth-gas-station-info-url-ulGncX',
+      secretCompleteArn: `arn:aws:secretsmanager:${REGION_ACCOUNT_KEY}:secret:eth-gas-station-info-url-ulGncX`,
     })
 
     const pinataApi = sm.Secret.fromSecretAttributes(this, 'PinataAPI', {
-      secretCompleteArn: 'arn:aws:secretsmanager:us-east-2:644039819003:secret:pinata-api-key-UVLAfM',
+      secretCompleteArn: `arn:aws:secretsmanager:${REGION_ACCOUNT_KEY}:secret:pinata-api-key-UVLAfM`,
     })
     const route53Arn = sm.Secret.fromSecretAttributes(this, 'Route53Arn', {
-      secretCompleteArn: 'arn:aws:secretsmanager:us-east-2:644039819003:secret:Route53Arn-elRmmw',
+      secretCompleteArn: `arn:aws:secretsmanager:${REGION_ACCOUNT_KEY}:secret:Route53Arn-elRmmw`,
     })
 
     const pinataSecret = sm.Secret.fromSecretAttributes(this, 'PinataSecret', {
-      secretCompleteArn: 'arn:aws:secretsmanager:us-east-2:644039819003:secret:pinata-secret-svGaPt',
+      secretCompleteArn: `arn:aws:secretsmanager:${REGION_ACCOUNT_KEY}:secret:pinata-secret-svGaPt`,
     })
 
     const hostedZone = sm.Secret.fromSecretAttributes(this, 'HostedZone', {
-      secretCompleteArn: 'arn:aws:secretsmanager:us-east-2:644039819003:secret:hosted-zone-JmPDNV',
+      secretCompleteArn: `arn:aws:secretsmanager:${REGION_ACCOUNT_KEY}:secret:hosted-zone-JmPDNV`,
     })
 
     const internalApiKey = sm.Secret.fromSecretAttributes(this, 'internal-api-key', {
-      secretCompleteArn: 'arn:aws:secretsmanager:us-east-2:644039819003:secret:routing-api-internal-api-key-Z68NmB',
+      secretCompleteArn: `arn:aws:secretsmanager:${REGION_ACCOUNT_KEY}:secret:routing-api-internal-api-key-Z68NmB`,
     })
 
     // Parse AWS Secret
@@ -181,12 +184,12 @@ export class RoutingAPIPipeline extends Stack {
 
     // Prod us-east-2
     const prodUsEast2Stage = new RoutingAPIStage(this, 'prod-us-east-2', {
-      env: { account: '606857263320', region: 'us-east-2' },
+      env: { account: ACCOUNT_KEY, region: REGION_KEY },
       jsonRpcProviders: jsonRpcProviders,
       internalApiKey: internalApiKey.secretValue.toString(),
       provisionedConcurrency: 500,
       ethGasStationInfoUrl: ethGasStationInfoUrl.secretValue.toString(),
-      chatbotSNSArn: 'arn:aws:sns:us-east-2:644039819003:SlackChatbotTopic',
+      chatbotSNSArn: `arn:aws:sns:${REGION_KEY}:${ACCOUNT_KEY}:SlackChatbotTopic'`,
       stage: STAGE.PROD,
       route53Arn: route53Arn.secretValueFromJson('arn').toString(),
       pinata_key: pinataApi.secretValueFromJson('pinata-api-key').toString(),
@@ -204,7 +207,7 @@ export class RoutingAPIPipeline extends Stack {
     const slackChannel = chatbot.SlackChannelConfiguration.fromSlackChannelConfigurationArn(
       this,
       'SlackChannel',
-      'arn:aws:chatbot::644039819003:chat-configuration/slack-channel/eng-ops-slack-chatbot'
+      `arn:aws:chatbot::${ACCOUNT_KEY}:chat-configuration/slack-channel/eng-ops-slack-chatbot`
     )
 
     pipeline.buildPipeline()
@@ -292,5 +295,5 @@ new RoutingAPIStack(app, 'RoutingAPIStack', {
 })
 
 new RoutingAPIPipeline(app, 'RoutingAPIPipelineStack', {
-  env: { account: '644039819003', region: 'us-east-2' },
+  env: { account: ACCOUNT_KEY, region: REGION_KEY },
 })

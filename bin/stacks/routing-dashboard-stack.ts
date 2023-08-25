@@ -9,7 +9,7 @@ import { CachedRoutesWidgetsFactory } from '../../lib/dashboards/cached-routes-w
 import { ID_TO_NETWORK_NAME } from '@kinetix/smart-order-router/build/main/util/chains'
 import { RpcProvidersWidgetsFactory } from '../../lib/dashboards/rpc-providers-widgets-factory'
 
-export const NAMESPACE = 'Uniswap'
+export const NAMESPACE = 'Kinetix'
 
 export type LambdaWidget = {
   type: string
@@ -646,8 +646,8 @@ export class RoutingDashboardStack extends cdk.NestedStack {
               height: 6,
               properties: {
                 metrics: _.flatMap(SUPPORTED_CHAINS, (chainId: ChainId) => [
-                  ['Uniswap', `QuoteFoundForChain${chainId}`, 'Service', 'RoutingAPI'],
-                  ['Uniswap', `QuoteRequestedForChain${chainId}`, 'Service', 'RoutingAPI'],
+                  ['Kinetix', `QuoteFoundForChain${chainId}`, 'Service', 'RoutingAPI'],
+                  ['Kinetix', `QuoteRequestedForChain${chainId}`, 'Service', 'RoutingAPI'],
                 ]),
                 view: 'timeSeries',
                 stacked: false,

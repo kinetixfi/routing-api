@@ -299,14 +299,14 @@ export class RoutingAPIStack extends cdk.Stack {
         period: Duration.minutes(30),
         usingMetrics: {
           simulationRequested: new aws_cloudwatch.Metric({
-            namespace: 'Uniswap',
+            namespace: 'Kinetix',
             metricName: `Simulation Requested`,
             dimensionsMap: { Service: 'RoutingAPI' },
             unit: aws_cloudwatch.Unit.COUNT,
             statistic: 'sum',
           }),
           simulationFailed: new aws_cloudwatch.Metric({
-            namespace: 'Uniswap',
+            namespace: 'Kinetix',
             metricName: `SimulationFailed`,
             dimensionsMap: { Service: 'RoutingAPI' },
             unit: aws_cloudwatch.Unit.COUNT,

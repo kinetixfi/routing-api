@@ -1177,10 +1177,10 @@
     tiny-invariant "^1.1.0"
     toformat "^2.0.0"
 
-"@kinetix/smart-order-router@^1.0.3":
-  version "1.0.3"
-  resolved "http://localhost:4873/@kinetix/smart-order-router/-/smart-order-router-1.0.3.tgz#ff4f33778ae300b71deaa711f32435af39e3a99b"
-  integrity sha512-wwBytGKMi54FsEuGSptFumYI8ATFpgselCFscEqezxSeDcZK2XgxAGtPSBpThXs1k8HFvXijfsSKvXAjbqlGVQ==
+"@kinetix/smart-order-router@^1.0.5":
+  version "1.0.5"
+  resolved "http://localhost:4873/@kinetix/smart-order-router/-/smart-order-router-1.0.5.tgz#e10087310341629b911cc4580a96b9b7c3f77494"
+  integrity sha512-LjZ/SOomvC8MbL8qYdzyNQHvTPhWvzmkWvns85ZiaY81Inty5L0PLQnjNPYv7W/1+AQWx+b9oDGCWdguvLVwUA==
   dependencies:
     "@kinetix/default-token-list" "^1.0.0"
     "@kinetix/permit2-sdk" "^1.0.0"
