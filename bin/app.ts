@@ -15,7 +15,7 @@ import { RoutingAPIStack } from './stacks/routing-api-stack'
 dotenv.config()
 
 const REGION_KEY = 'eu-central-1'
-const ACCOUNT_KEY = '632279610150'
+const ACCOUNT_KEY = '366110376690'
 const REGION_ACCOUNT_KEY = `${REGION_KEY}:${ACCOUNT_KEY}`
 
 export class RoutingAPIStage extends Stage {
