@@ -70,7 +70,6 @@
     "@kinetix/token-lists": "^1.0.0",
     "@kinetix/universal-router-sdk": "^1.0.4",
     "@kinetix/v2-sdk": "^1.0.1",
-    "@kinetix/v3-periphery": "^1.0.0",
     "@kinetix/v3-sdk": "^1.0.0",
     "@middy/core": "^2.4.1",
     "@middy/http-error-handler": "^2.4.1",
