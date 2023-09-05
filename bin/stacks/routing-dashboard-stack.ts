@@ -34,14 +34,7 @@ export class RoutingDashboardStack extends cdk.NestedStack {
     const { apiName, routingLambdaName, poolCacheLambdaNameArray, ipfsPoolCacheLambdaName } = props
     const region = cdk.Stack.of(this).region
 
-    const TESTNETS = [
-      ChainId.ARBITRUM_GOERLI,
-      ChainId.POLYGON_MUMBAI,
-      ChainId.GOERLI,
-      ChainId.SEPOLIA,
-      ChainId.CELO_ALFAJORES,
-      ChainId.BASE_GOERLI,
-    ]
+    const TESTNETS: ChainId[] = []
 
     const MAINNETS = SUPPORTED_CHAINS.filter((chain) => !TESTNETS.includes(chain))
 

@@ -8,13 +8,13 @@ import { QuoteResponse } from '../lib/handlers/schema'
 dotenv.config()
 ;(async function () {
   const quotePost: QuoteQueryParams = {
-    tokenInAddress: 'MKR',
-    tokenInChainId: 1,
-    tokenOutAddress: 'GRT',
-    tokenOutChainId: 1,
+    tokenInAddress: 'WKAVA',
+    tokenInChainId: 2222,
+    tokenOutAddress: 'USDt',
+    tokenOutChainId: 2222,
     amount: '50',
     type: 'exactIn',
-    recipient: '0xAb5801a7D398351b8bE11C439e05C5B3259aeC9B',
+    recipient: '0x58591456DD9FEdf8F629819F88cC02F4C6e9Aeb9',
     slippageTolerance: '5',
     deadline: '360',
     algorithm: 'alpha',

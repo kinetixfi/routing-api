@@ -17,7 +17,7 @@ import { RoutingDashboardStack } from './routing-dashboard-stack'
 import { RoutingLambdaStack } from './routing-lambda-stack'
 import { RoutingDatabaseStack } from './routing-database-stack'
 
-export const CHAINS_NOT_MONITORED: ChainId[] = [ChainId.GOERLI, ChainId.POLYGON_MUMBAI]
+export const CHAINS_NOT_MONITORED: ChainId[] = []
 
 export class RoutingAPIStack extends cdk.Stack {
   public readonly url: CfnOutput

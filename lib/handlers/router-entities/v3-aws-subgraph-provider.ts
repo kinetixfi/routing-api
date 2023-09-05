@@ -12,7 +12,7 @@ export class V3AWSSubgraphProviderWithFallback extends V3SubgraphProvider implem
 
   constructor(private chain: ChainId, private bucket: string, key: string) {
     super(chain)
-    this.key = `${key}${chain != ChainId.MAINNET ? `-${chain}` : ''}`
+    this.key = `${key}${chain != ChainId.KAVA ? `-${chain}` : ''}`
   }
 
   public async getPools(): Promise<V3SubgraphPool[]> {
